@@ -10,11 +10,15 @@ import '@/assets/styles/global.scss'
 
 // 4. 组件的样式
 import App from './App'
-import Router from './router'
+// import Router from './router/index1'
+
+import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    {/* <App /> */}
-    <Router />
+    <BrowserRouter>
+      <App /> 
+    </BrowserRouter>
+    {/* <Router /> */}
   </React.StrictMode>,
 )
