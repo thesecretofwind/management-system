@@ -6,6 +6,7 @@
 // import {RightCircleFilled} from '@ant-design/icons'
 import {  Link, useRoutes } from "react-router-dom"
 import routes from "./router"
+import { Suspense } from "react";
 function App() {
   // const [count, setCount] = useState(0)
   const outlet = useRoutes(routes);
@@ -20,7 +21,9 @@ function App() {
      <Link  to="/about">about</Link>
      {/* 路由组件渲染位置 (这里是原始用来渲染路由的方式)*/}
      {/* <Outlet></Outlet> */}
-     {outlet}
+     <Suspense fallback={<div>loading...</div>}>
+      {outlet}
+     </Suspense>
     </>
   )
 }
