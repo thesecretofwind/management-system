@@ -3,11 +3,11 @@ import Home from "@/views/Home";
 import Page1 from "@/views/Page1";
 import Page2 from "@/views/Page2";
 // import User from "@/views/User";
-import { lazy } from "react";
+// import { lazy } from "react";
 import { Navigate } from "react-router-dom";
 
-const About = lazy(() => import('@/views/About'));
-const User = lazy(() => import('@/views/User'))
+// const About = lazy(() => import('@/views/About'));
+// const User = lazy(() => import('@/views/User'))
 
 const routes = [
   {
