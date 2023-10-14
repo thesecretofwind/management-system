@@ -1,23 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import {
   DesktopOutlined,
   FileOutlined,
   PieChartOutlined,
   TeamOutlined,
   UserOutlined,
-} from '@ant-design/icons';
-import type { MenuProps } from 'antd';
-import { Breadcrumb, Layout, Menu, theme } from 'antd';
+} from "@ant-design/icons";
+import type { MenuProps } from "antd";
+import { Breadcrumb, Layout, Menu, theme } from "antd";
+import { useNavigate, Outlet } from "react-router-dom";
 
 const { Header, Content, Footer, Sider } = Layout;
 
-type MenuItem = Required<MenuProps>['items'][number];
+type MenuItem = Required<MenuProps>["items"][number];
 
 function getItem(
   label: React.ReactNode,
   key: React.Key,
   icon?: React.ReactNode,
-  children?: MenuItem[],
+  children?: MenuItem[]
 ): MenuItem {
   return {
     key,
@@ -28,53 +29,74 @@ function getItem(
 }
 
 const items: MenuItem[] = [
-  getItem('Option 1', '1', <PieChartOutlined />),
-  getItem('Option 2', '2', <DesktopOutlined />),
-  getItem('User', 'sub1', <UserOutlined />, [
-    getItem('Tom', '3'),
-    getItem('Bill', '4'),
-    getItem('Alex', '5'),
+  getItem("Option 1", "/page1", <PieChartOutlined />),
+  getItem("Option 2", "/page2", <DesktopOutlined />),
+  getItem("User", "sub1", <UserOutlined />, [
+    getItem("Tom", "3"),
+    getItem("Bill", "4"),
+    getItem("Alex", "5"),
   ]),
-  getItem('Team', 'sub2', <TeamOutlined />, [getItem('Team 1', '6'), getItem('Team 2', '8')]),
-  getItem('Files', '9', <FileOutlined />),
+  getItem("Team", "sub2", <TeamOutlined />, [
+    getItem("Team 1", "6"),
+    getItem("Team 2", "8"),
+  ]),
+  getItem("Files", "9", <FileOutlined />),
 ];
 
 const Home: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
+  const navigateTo = useNavigate();
   const {
     token: { colorBgContainer },
   } = theme.useToken();
 
-  const menuClick =(e:MenuItem) => {
+  const menuClick = (e: MenuItem) => {
     console.log(e);
-    
-  }
+    const url = e!.key as string;
+    navigateTo(url);
+  };
 
   return (
-    <Layout style={{ minHeight: '100vh' }}>
+    <Layout style={{ minHeight: "100vh" }}>
       {/* 左边侧边栏 */}
-      <Sider collapsible collapsed={collapsed} onCollapse={(value) => setCollapsed(value)}>
+      <Sider
+        collapsible
+        collapsed={collapsed}
+        onCollapse={(value) => setCollapsed(value)}
+      >
         <div className="demo-logo-vertical" />
-        <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline" items={items}  onClick={menuClick}/>
+        <Menu
+          theme="dark"
+          defaultSelectedKeys={["/page1"]}
+          mode="inline"
+          items={items}
+          onClick={menuClick}
+        />
       </Sider>
       {/* 右侧内容区 */}
       <Layout>
-        <Header style={{ paddingLeft:'16px', background: colorBgContainer }} >
-          <Breadcrumb style={{ lineHeight: '64px' }} items={[{title: 'User'}, {title: 'Bill'}]}>
+        <Header style={{ paddingLeft: "16px", background: colorBgContainer }}>
+          <Breadcrumb
+            style={{ lineHeight: "64px" }}
+            items={[{ title: "User" }, { title: "Bill" }]}
+          >
             {/* <Breadcrumb.Item>User</Breadcrumb.Item>
             <Breadcrumb.Item>Bill</Breadcrumb.Item> */}
           </Breadcrumb>
         </Header>
-        <Content style={{ margin: '16px 16px 0', height: '100%' }} className="demo-logo-vertical">
-          <div style={{ padding: 24, height: '100%', background: colorBgContainer }}>
-            Bill is a cat.
-          </div>
+        {/* 内容展示部分 */}
+        <Content
+          style={{ margin: "16px 16px 0", height: "100%" }}
+          className="demo-logo-vertical"
+        >
+          <Outlet />
         </Content>
-        <Footer style={{ textAlign: 'center', padding: 0, lineHeight:"48px" }}>Ant Design ©2023 Created by Ant UED</Footer>
+        <Footer style={{ textAlign: "center", padding: 0, lineHeight: "48px" }}>
+          Ant Design ©2023 Created by Ant UED
+        </Footer>
       </Layout>
     </Layout>
   );
 };
 
-
-export default Home
+export default Home;
