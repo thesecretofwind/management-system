@@ -43,9 +43,12 @@ const items: MenuItem[] = [
   getItem("Files", "9", <FileOutlined />),
 ];
 
+// const rootSubmenuKeys = ['sub1', 'sub2'];
+
 const Home: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
   const navigateTo = useNavigate();
+  const [openKeys, setOpenKeys] = useState([] as string[]);
   const {
     token: { colorBgContainer },
   } = theme.useToken();
@@ -55,6 +58,21 @@ const Home: React.FC = () => {
     const url = e!.key as string;
     navigateTo(url);
   };
+
+  const handleOpenChange = (openKeys: string[]) => {
+    console.log(openKeys);
+    // 所有点开的二级菜单是否保存
+    // const latestOpenkey = keys.find((key: string) => !openKeys.includes(key));
+    // // 如果点开的二级菜单中没保存，且所有二级菜单中不存在中，则直接设置
+    // if (latestOpenkey && !rootSubmenuKeys.includes(latestOpenkey)) {
+    //   setOpenKeys(keys)
+    // } else {
+    //   // latestOpenkey存在表示切换了二级菜单，直接设置即可，如果找不到那就都不展开二级菜单
+    //   setOpenKeys(latestOpenkey ? [latestOpenkey] : [])
+    // }
+    const lastesOpenKey = openKeys[openKeys.length - 1];
+    setOpenKeys([lastesOpenKey]);
+  }
 
   return (
     <Layout style={{ minHeight: "100vh" }}>
@@ -71,6 +89,8 @@ const Home: React.FC = () => {
           mode="inline"
           items={items}
           onClick={menuClick}
+          onOpenChange={handleOpenChange}
+          openKeys={openKeys}
         />
       </Sider>
       {/* 右侧内容区 */}
