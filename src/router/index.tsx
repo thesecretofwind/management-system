@@ -1,13 +1,17 @@
 // import About from "@/views/About";
 import Home from "@/views/Home";
-import Page1 from "@/views/Page1";
-import Page2 from "@/views/Page2";
 // import User from "@/views/User";
-// import { lazy } from "react";
+import { Suspense, lazy } from "react";
 import { Navigate } from "react-router-dom";
 
 // const About = lazy(() => import('@/views/About'));
 // const User = lazy(() => import('@/views/User'))
+const Page1 = lazy(() => import('@/views/Page1'));
+const Page2 =  lazy(() => import('@/views/Page2'));
+const Page3=  lazy(() => import('@/views/Page3'));
+
+// 如果是在App.tsx给其outlet一个公共的Suspense标签加载，会路由组件会渲染两次(表现：Home组件中的打印currentRoute)
+const withLoadingComponent = (component: JSX.Element) => (<Suspense fallback={<div>loading...</div>}>{component}</Suspense>)
 
 const routes = [
   {
@@ -22,11 +26,15 @@ const routes = [
     children: [
       {
         path: '/page1',
-        element: <Page1 />
+        element: withLoadingComponent(<Page1 />)
       },
       {
         path: '/page2',
-        element: <Page2 />
+        element: withLoadingComponent(<Page2 />)
+      },
+      {
+        path: '/page3/page301',
+        element: withLoadingComponent(<Page3 />)
       }
     ]
   }
