@@ -15,10 +15,11 @@ import App from './App'
 import { BrowserRouter } from 'react-router-dom';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
+  // 严格模式下，组件会render两次？
+  // <React.StrictMode>
     <BrowserRouter>
       <App /> 
     </BrowserRouter>
-    {/* <Router /> */}
-  </React.StrictMode>,
+    // {/* <Router /> */}
+  // </React.StrictMode>, 
 )
