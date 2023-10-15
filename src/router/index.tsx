@@ -9,6 +9,7 @@ import { Navigate } from "react-router-dom";
 const Page1 = lazy(() => import('@/views/Page1'));
 const Page2 =  lazy(() => import('@/views/Page2'));
 const Page3=  lazy(() => import('@/views/Page3'));
+const Login = lazy(() => import('@/views/Login'));
 
 // 如果是在App.tsx给其outlet一个公共的Suspense标签加载，会路由组件会渲染两次(表现：Home组件中的打印currentRoute)
 const withLoadingComponent = (component: JSX.Element) => (<Suspense fallback={<div>loading...</div>}>{component}</Suspense>)
@@ -37,6 +38,10 @@ const routes = [
         element: withLoadingComponent(<Page3 />)
       }
     ]
+  },
+  {
+    path: '/login',
+    element: withLoadingComponent(<Login />)
   }
   // {
   //   path:'/home',
