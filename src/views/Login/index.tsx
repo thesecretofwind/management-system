@@ -12,6 +12,10 @@ const Login = () => {
     // 窗口变动时重新渲染canvas
     window.onresize = initLoginBackground;
   }, []);
+
+  const changeCaptchaImg = () => {
+
+  }
   return (
     <div className={styles.loginPage}>
       {/* 背景 */}
@@ -26,9 +30,15 @@ const Login = () => {
         {/* 表单 */}
         <div className="loginForm">
           <Space direction="vertical" size="large" style={{ display: 'flex' }}>
-            <Input placeholder="用户名" /> 
-            <Input.Password placeholder="密码" />
-            <Button type="primary" block>
+            <Input  size="large" placeholder="用户名" /> 
+            <Input.Password size="large" placeholder="密码" />
+            <div className={styles.capthchaBox}>
+              <Input size="large" placeholder="验证码" /> 
+              <div className={styles.captchaImg} onClick={changeCaptchaImg}>
+                <img height="38" src="https://www.php.cn/captcha.html?t=1697544357914" alt="" />
+              </div>
+            </div>
+            <Button type="primary" size="large" block>
               登陆
             </Button>
           </Space>
