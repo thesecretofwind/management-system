@@ -1,5 +1,5 @@
-import { ChangeEvent, useEffect, useState } from "react";
-import { Button, Form, Input, InputNumber, Space } from "antd";
+import { useEffect } from "react";
+import { Button, Form, Input } from "antd";
 import initLoginBackground from "./init";
 import styles from "./login.module.scss";
 // 直接引入变成全局样式，用于覆盖UI组件样式(注：覆盖的样式一般需要在本组件的某个类名下，即使得覆盖样式只在该组件生效)
@@ -23,6 +23,8 @@ const Login = () => {
 
   const changeCaptchaImg = () => {};
 
+  const onFinish = (value: UserForm) => {console.log(value)};
+
   // const usernameChange = (e: ChangeEvent<HTMLInputElement>) => {
   //   console.log(e.target.value);
   // }
@@ -44,14 +46,15 @@ const Login = () => {
           layout="vertical"
           autoComplete="off"
           className="loginForm"
+          onFinish={onFinish}
         >
-          <Form.Item name="name">
+          <Form.Item name="username">
             <Input size="large" placeholder="用户名" />
           </Form.Item>
-          <Form.Item name="age">
+          <Form.Item name="password">
             <Input.Password size="large" placeholder="密码" />
           </Form.Item>
-          <Form.Item name="age">
+          <Form.Item name="capthcha">
             <div className={styles.capthchaBox}>
               <Input size="large" placeholder="验证码" />
               <div className={styles.captchaImg} onClick={changeCaptchaImg}>
@@ -62,6 +65,11 @@ const Login = () => {
                 />
               </div>
             </div>
+          </Form.Item>
+          <Form.Item>
+          <Button type="primary" size="large" htmlType="submit" block >
+              登陆
+            </Button>
           </Form.Item>
         </Form>
         {/* <div className="loginForm">
