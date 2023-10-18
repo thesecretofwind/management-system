@@ -13,13 +13,17 @@ import App from './App'
 // import Router from './router/index1'
 
 import { BrowserRouter } from 'react-router-dom';
+import store from '@/store';
+import { Provider } from 'react-redux';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   // 严格模式下，组件会render两次？
   // <React.StrictMode>
+  <Provider store={store}>
     <BrowserRouter>
       <App /> 
     </BrowserRouter>
+  </Provider>
     // {/* <Router /> */}
   // </React.StrictMode>, 
 )
