@@ -1,4 +1,4 @@
-import { STATE } from "@/store/reducer";
+import { STATE } from "@/store/action";
 import { useDispatch, useSelector } from "react-redux";
 
 

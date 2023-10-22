@@ -1,16 +1,5 @@
+import { ACTION, INIT_STATE, STATE } from "./action";
 
-export interface STATE {
-  num: number;
-}
-
-export interface ACTION {
-  type: string;
-  value: STATE[keyof STATE];
-}
-
-const INIT_STATE: STATE = {
-  num: 20
-}
 const reducer = (state = INIT_STATE, action: ACTION):STATE => {
   switch(action.type) {
     case 'selfAdd':
