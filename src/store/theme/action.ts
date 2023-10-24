@@ -1,3 +1,5 @@
+import { Dispatch } from "redux";
+
 export const actionTypes = {
   DEFAULT: 'default',
   BLACK: 'black',
@@ -20,5 +22,13 @@ export type THEME_ACTION = {
   type: 'theme',
   payload: THEME  
 }
+
+
+// 使用redux-thunk来制作action
+export const updateTheme = (dispatch: Dispatch<THEME_ACTION>) => {
+  setTimeout(() => {
+    dispatch({type: 'theme', payload: 'orange'});
+  })
+};
 
 
