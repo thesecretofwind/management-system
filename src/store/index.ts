@@ -5,7 +5,7 @@ import thunk from 'redux-thunk';
 import themeReducer from './theme/theme.reducer';
 import userReducer from './user/user.reducer';
 import { THEME_STATE } from './theme/theme.type';
-import { USER_STATE } from './user/user.action';
+import { USER_STATE } from './user/user.type';
 
 export interface STATE {
   theme:THEME_STATE,

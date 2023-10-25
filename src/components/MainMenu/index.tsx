@@ -97,7 +97,7 @@ const items = [
     key: '/page5',
     icon: <FileOutlined />
   },
-]
+];
 
 // const rootSubmenuKeys = ['sub1', 'sub2'];
 

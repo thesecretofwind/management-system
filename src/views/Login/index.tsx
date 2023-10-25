@@ -1,29 +1,39 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Button, Form, Input } from "antd";
+import { login } from "@/request/api";
 import initLoginBackground from "./init";
 import styles from "./login.module.scss";
 // 直接引入变成全局样式，用于覆盖UI组件样式(注：覆盖的样式一般需要在本组件的某个类名下，即使得覆盖样式只在该组件生效)
 import "./login.scss";
 
-interface UserForm {
+export interface UserForm {
   username: string;
   password: string;
   capthcha: string;
 }
 
+const CAPTHCHA_URL = 'https://www.php.cn/captcha.html';
+
 const Login = () => {
   // 组件加载完毕后，执行函数生成背景
   useEffect(() => {
     initLoginBackground();
+    changeCaptchaImg();
     // 窗口变动时重新渲染canvas
     window.onresize = initLoginBackground;
   }, []);
+  const [captchaUrl, setCaptchaUrl] = useState(`${CAPTHCHA_URL}?t=${new Date().getTime()}`)
 
   const [form] = Form.useForm<UserForm>();
 
-  const changeCaptchaImg = () => {};
+  const changeCaptchaImg = () => {
+    setCaptchaUrl(`${CAPTHCHA_URL}?t=${new Date().getTime()}`);
+  };
 
-  const onFinish = (value: UserForm) => {console.log(value)};
+  const onFinish = (value: UserForm) => {
+    console.log(value);
+    login(value);
+  };
 
   // const usernameChange = (e: ChangeEvent<HTMLInputElement>) => {
   //   console.log(e.target.value);
@@ -60,7 +70,7 @@ const Login = () => {
               <div className={styles.captchaImg} onClick={changeCaptchaImg}>
                 <img
                   height="38"
-                  src="https://www.php.cn/captcha.html?t=1697544357914"
+                  src={captchaUrl}
                   alt=""
                 />
               </div>
