@@ -2,10 +2,10 @@ import { createStore, combineReducers, applyMiddleware, compose} from 'redux';
 import thunk from 'redux-thunk';
 // import reducer from './reducer';
 
-import themeReducer from './theme/reducer';
-import userReducer from './user/reducer';
-import { THEME_STATE } from './theme/action';
-import { USER_STATE } from './user/action';
+import themeReducer from './theme/theme.reducer';
+import userReducer from './user/user.reducer';
+import { THEME_STATE } from './theme/theme.type';
+import { USER_STATE } from './user/user.action';
 
 export interface STATE {
   theme:THEME_STATE,

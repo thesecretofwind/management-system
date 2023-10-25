@@ -1,5 +1,5 @@
 import { STATE } from "@/store";
-import { updateTheme } from "@/store/theme/action";
+import { updateTheme } from "@/store/theme/theme.action";
 import { useDispatch, useSelector } from "react-redux";
 
 
