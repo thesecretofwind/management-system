@@ -1,6 +1,6 @@
-import { STATE } from "@/store";
-import { updateTheme } from "@/store/theme/theme.action";
-import { useDispatch, useSelector } from "react-redux";
+import { STATE } from '@/store';
+import { updateTheme } from '@/store/theme/theme.action';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 const Page1 = () => { 

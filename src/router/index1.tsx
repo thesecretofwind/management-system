@@ -1,7 +1,7 @@
-import App from "@/App";
-import About from "@/views/About";
-import Home from "@/views/Home";
-import { BrowserRouter, Route, Routes,Navigate } from "react-router-dom";
+import App from '@/App';
+import About from '@/views/About';
+import Home from '@/views/Home';
+import { BrowserRouter, Route, Routes,Navigate } from 'react-router-dom';
 
 // 两种路由模式， BrowserRouter(Histotry模式)、HashRouter(Hash模式)
 

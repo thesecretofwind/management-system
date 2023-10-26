@@ -1,0 +1,66 @@
+{
+  "typescript.tsserver.useSeparateSyntaxServer": false,
+  "emmet.syntaxProfiles": {
+      "vue-html": "html",
+      "vue": "html"
+  },
+  "eslint.validate": [
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact"
+  ],
+  // #每次保存的时候将代码按eslint格式进行修复
+  "editor.codeActionsOnSave": {
+      "source.fixAlltrue.eslint": true,
+      "source.fixAll.eslint": true
+  },
+  "editor.tabSize": 2,
+  // 两个选择器中是否换行
+  "window.zoomLevel": 1,
+  "editor.fontSize": 12,
+  // #每次保存的时候自动格式化 
+  "editor.formatOnSave": true,
+  //  #让prettier使用eslint的代码格式进行校验 
+  "prettier.eslintIntegration": true,
+  //  #去掉代码结尾的分号 
+  "prettier.semi": false,
+  //  #使用带引号替代双引号 
+  "prettier.singleQuote": true,
+  //  #让函数(名)和后面的括号之间加个空格
+  //"javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+  //要js和ts的jsx标签添加空格
+  //"javascript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
+  // "typescript.format.insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces": true,
+  //"files.autoSave": "onWindowChange",
+  //按下tab以后代码自动补全
+  "emmet.triggerExpansionOnTab": true,
+  //工作台状态栏可见
+  "workbench.statusBar.visible": true,
+  // 找回设置栏，
+  // "workbench.activityBar.visible": true,
+  //工作台设置打开默认密钥绑定
+  // "workbench.settings.openDefaultKeybindings": true,
+  //eslint始终显示状态
+  "eslint.alwaysShowStatus": true,
+  //html中的html格式
+  "html.format.indentInnerHtml": true,
+  //html格式缩进句柄栏
+  "html.format.indentHandlebars": true,
+  //工作台编辑器启用预览
+  "workbench.editor.enablePreview": false,
+  //javascript隐式项目配置实验修饰符
+  "javascript.implicitProjectConfig.experimentalDecorators": true,
+  //git命令关闭焦点
+  "gitlens.gitCommands.closeOnFocusOut": true,
+  //git确认同步
+  "git.confirmSync": false,
+  //git lens高级文件历史记录遵循重命名
+  "gitlens.advanced.fileHistoryFollowsRenames": false,
+  //差异编辑器忽略修剪空白
+  "diffEditor.ignoreTrimWhitespace": true,
+  //搜索跟踪符号链接
+  "search.followSymlinks": false,
+  //维图尔完成自动导入
+  "vetur.completion.autoImport": false,
+}

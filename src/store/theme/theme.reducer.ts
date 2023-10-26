@@ -1,4 +1,4 @@
-import { THEME_ACTION, THEME_STATE } from "./theme.type";
+import { THEME_ACTION, THEME_STATE } from './theme.type';
 
 
 export const THEME_INIT_STATE: THEME_STATE = {
@@ -7,7 +7,7 @@ export const THEME_INIT_STATE: THEME_STATE = {
 
 
 const themeReducer = (state = THEME_INIT_STATE, action: THEME_ACTION):THEME_STATE => {
-  switch(action.type) {
+  switch (action.type) {
     case 'theme':
       return {...state, currentTheme: action.payload}
     default:

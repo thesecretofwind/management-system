@@ -4,8 +4,8 @@
 // import Comp2 from "./components/Comp2"
 // import { Button } from "antd"
 // import {RightCircleFilled} from '@ant-design/icons'
-import { useRoutes } from "react-router-dom"
-import routes from "./router"
+import { useRoutes } from 'react-router-dom'
+import routes from './router'
 // import { Suspense } from "react";
 function App() {
   // const [count, setCount] = useState(0)

@@ -5,8 +5,8 @@ export default function initLoginBg() {
     document.documentElement.clientHeight || document.body.clientHeight;
   // let windowWidth = window.clientWidth;
   // let windowHeight = window.clientHeight;
-  const canvas = document.getElementById("canvas") as HTMLCanvasElement,
-    ctx = canvas.getContext("2d") as CanvasRenderingContext2D,
+  const canvas = document.getElementById('canvas') as HTMLCanvasElement,
+    ctx = canvas.getContext('2d') as CanvasRenderingContext2D,
     w = (canvas.width = windowWidth),
     h = (canvas.height = windowHeight),
     hue = 217,
@@ -14,16 +14,16 @@ export default function initLoginBg() {
     maxStars = 500; //星星数量
   let count = 0;
 
-  const canvas2 = document.createElement("canvas"),
-    ctx2 = canvas2.getContext("2d") as CanvasRenderingContext2D;
+  const canvas2 = document.createElement('canvas'),
+    ctx2 = canvas2.getContext('2d') as CanvasRenderingContext2D;
   canvas2.width = 100;
   canvas2.height = 100;
   const half = canvas2.width / 2,
     gradient2 = ctx2.createRadialGradient(half, half, 0, half, half, half);
-  gradient2.addColorStop(0.025, "#CCC");
-  gradient2.addColorStop(0.1, "hsl(" + hue + ", 61%, 33%)");
-  gradient2.addColorStop(0.25, "hsl(" + hue + ", 64%, 6%)");
-  gradient2.addColorStop(1, "transparent");
+  gradient2.addColorStop(0.025, '#CCC');
+  gradient2.addColorStop(0.1, 'hsl(' + hue + ', 61%, 33%)');
+  gradient2.addColorStop(0.25, 'hsl(' + hue + ', 64%, 6%)');
+  gradient2.addColorStop(1, 'transparent');
 
   ctx2.fillStyle = gradient2;
   ctx2.beginPath();
@@ -105,12 +105,12 @@ export default function initLoginBg() {
   }
 
   function animation() {
-    ctx.globalCompositeOperation = "source-over";
+    ctx.globalCompositeOperation = 'source-over';
     ctx.globalAlpha = 0.5; //尾巴
-    ctx.fillStyle = "hsla(" + hue + ", 64%, 6%, 2)";
+    ctx.fillStyle = 'hsla(' + hue + ', 64%, 6%, 2)';
     ctx.fillRect(0, 0, w, h);
 
-    ctx.globalCompositeOperation = "lighter";
+    ctx.globalCompositeOperation = 'lighter';
     for (let i = 1, l = stars.length; i < l; i++) {
       stars[i].draw();
     }

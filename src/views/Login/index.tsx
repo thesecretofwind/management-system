@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
-import { Button, Form, Input } from "antd";
-import { login } from "@/request/api";
-import initLoginBackground from "./init";
-import styles from "./login.module.scss";
+import { useEffect, useState } from 'react';
+import { Button, Form, Input } from 'antd';
+import { login } from '@/request/api';
+import initLoginBackground from './init';
+import styles from './login.module.scss';
 // 直接引入变成全局样式，用于覆盖UI组件样式(注：覆盖的样式一般需要在本组件的某个类名下，即使得覆盖样式只在该组件生效)
-import "./login.scss";
+import './login.scss';
 
 export interface UserForm {
   username: string;
@@ -41,7 +41,7 @@ const Login = () => {
   return (
     <div className={styles.loginPage}>
       {/* 背景 */}
-      <canvas id="canvas" style={{ display: "block" }}></canvas>
+      <canvas id="canvas" style={{ display: 'block' }}></canvas>
       {/* 登录内容 */}
       <div className={styles.loginBox}>
         {/* 标题 */}

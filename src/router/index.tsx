@@ -1,8 +1,8 @@
 // import About from "@/views/About";
-import Home from "@/views/Home";
+import Home from '@/views/Home';
 // import User from "@/views/User";
-import { Suspense, lazy } from "react";
-import { Navigate } from "react-router-dom";
+import { Suspense, lazy } from 'react';
+import { Navigate } from 'react-router-dom';
 
 // const About = lazy(() => import('@/views/About'));
 // const User = lazy(() => import('@/views/User'))

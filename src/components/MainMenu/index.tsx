@@ -1,17 +1,17 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   DesktopOutlined,
   FileOutlined,
   PieChartOutlined,
   TeamOutlined,
   UserOutlined,
-} from "@ant-design/icons";
-import type { MenuProps } from "antd";
-import { Menu } from "antd";
-import { useLocation, useNavigate } from "react-router-dom";
+} from '@ant-design/icons';
+import type { MenuProps } from 'antd';
+import { Menu } from 'antd';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
-type MenuItem = Required<MenuProps>["items"][number];
+type MenuItem = Required<MenuProps>['items'][number];
 
 // function getItem(
 //   label: React.ReactNode,
@@ -45,55 +45,55 @@ type MenuItem = Required<MenuProps>["items"][number];
 // 转换为嵌套树的形式，更直观，以方便后端返回数据后渲染侧边栏menu
 const items = [ 
   {
-    label:'栏目1',
+    label: '栏目1',
     key: '/page1',
-    icon:<PieChartOutlined />,
+    icon: <PieChartOutlined />,
   },
   {
-    label:'栏目2',
+    label: '栏目2',
     key: '/page2',
-    icon:<DesktopOutlined />
+    icon: <DesktopOutlined />
   },
   {
-    label:'栏目3',
+    label: '栏目3',
     key: 'page3', // 注意：有子menu的key值好像不用加上斜杠/
     icon: <UserOutlined />,
     children: [
       {
-        label:'栏目301',
+        label: '栏目301',
         key: '/page3/page301',
       },
       {
-        label:'栏目302',
+        label: '栏目302',
         key: '/page3/page302',
       },      
       {
-        label:'栏目303',
+        label: '栏目303',
         key: '/page3/page3011',
       },
       {
-        label:'栏目304',
+        label: '栏目304',
         key: '/page3/page304',
       },
     ]
   },
   {
-    label:'栏目4',
+    label: '栏目4',
     key: 'page4',
     icon: <TeamOutlined />,
     children: [
       {
-        label:'栏目401',
+        label: '栏目401',
         key: '/page4/page401',
       },
       {
-        label:'栏目402',
+        label: '栏目402',
         key: '/page4/page402',
       }
     ]
   },
   {
-    label:'栏目5',
+    label: '栏目5',
     key: '/page5',
     icon: <FileOutlined />
   },
