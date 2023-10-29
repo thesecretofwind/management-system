@@ -15,15 +15,26 @@ import App from './App'
 import { BrowserRouter } from 'react-router-dom';
 import store from '@/store';
 import { Provider } from 'react-redux';
+import { ConfigProvider } from 'antd';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   // 严格模式下，组件会render两次？
   // <React.StrictMode>
+  <ConfigProvider
+  theme={{
+    token: {
+      colorPrimary: '#2c9678',
+      colorError: '#f03752',
+      colorSuccess: '#40a070'
+    },
+  }}
+>
   <Provider store={store}>
-    <BrowserRouter>
-      <App /> 
-    </BrowserRouter>
-  </Provider>
+      <BrowserRouter>
+        <App /> 
+      </BrowserRouter>
+    </Provider>
+  </ConfigProvider>
     // {/* <Router /> */}
   // </React.StrictMode>, 
 )

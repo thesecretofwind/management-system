@@ -1,5 +1,6 @@
 import { STATE } from '@/store';
 import { updateTheme } from '@/store/theme/theme.action';
+import { Button } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 
 
@@ -24,8 +25,10 @@ const Page1 = () => {
   return (
     <>
     <div>这里是page1页面 { theme.currentTheme }</div>
-    <button onClick={updateTheme1}>按钮鸭</button>
+    <button  onClick={updateTheme1}>按钮鸭</button>
     <button onClick={updateThemeAsync}>异步更新</button>
+    <Button type="primary">Primary Button</Button>
+    <Button type="primary" danger>danger Button</Button>
   </>
 )}
 
